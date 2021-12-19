@@ -43,6 +43,6 @@ class OperationParser:
         param_dict = {}
         params_pair_split = params.split(',')
         for params_pair in params_pair_split:
-            param = params_pair.split('=')
+            param = params_pair.split('!')
             param_dict[param[0]] = param[1]
         return param_dict

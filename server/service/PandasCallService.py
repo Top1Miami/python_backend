@@ -9,4 +9,4 @@ class PandasCallService:
         result, error_value = self.db_handler.minus_launch(operation.user_id)
         if not result:
             return {"error occurred": error_value}
-        return {"result": pandas_call.call_func(pd_file)}
+        return {"result": pandas_call.call_func(pd_file).to_json()}

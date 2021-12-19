@@ -21,7 +21,7 @@ class ModelService:
         cached_result = self.cache.get_value((configured_model, operation.file_path),
                                              ModelService.count_cv, configured_model.model, pd_file,
                                              configured_model.scoring, configured_model.cv)
-        return {"score": cached_result}
+        return {"score": list(cached_result)}
 
     @staticmethod
     def count_cv(model, pd_file, scoring='neg_mean_squared_error', cv=3):

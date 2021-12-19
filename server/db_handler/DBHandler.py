@@ -4,27 +4,26 @@ from sqlite3 import Error, connect
 class DBHandler:
     DEMO_LAUNCH_NUMBER = 5
     PATH = ".\\sm_app.sqlite"
-    SCRIPT_PATH = ".\\..\\sql_script.sql"
 
-    def __init__(self):
+    def __init__(self, script_path):
         self.connection = DBHandler.__create_connection(DBHandler.PATH)
-        DBHandler.__init_table(self.connection)
+        self.script_path = script_path
+        self.__init_table(self.connection)
 
     @staticmethod
     def __create_connection(path):
         connection = None
         try:
-            connection = connect(path)
+            connection = connect(path, check_same_thread=False)
             print("Connection to SQLite DB successful")
         except Error as e:
             print(f"The error '{e}' occurred")
 
         return connection
 
-    @staticmethod
-    def __init_table(connection):
+    def __init_table(self, connection):
         cursor = connection.cursor()
-        with open(DBHandler.SCRIPT_PATH, 'r') as sqlite_file:
+        with open(self.script_path, 'r') as sqlite_file:
             sql_script = sqlite_file.read()
         cursor.executescript(sql_script)
         print("Script loaded successfully")
