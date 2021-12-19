@@ -1,5 +1,4 @@
-from main import parser_parameters, read_file, fit_model, load_file, fit_loaded, pandas_op, pandas_loaded
-import pytest
+from old_code.main import parser_parameters, read_file, fit_model, load_file, fit_loaded, pandas_op, pandas_loaded
 import pandas as pd
 
 

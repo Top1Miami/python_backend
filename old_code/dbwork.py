@@ -22,7 +22,7 @@ def close_connection(connection):
 
 def init_table(connection):
     cursor = connection.cursor()
-    with open('sql_script.sql', 'r') as sqlite_file:
+    with open('../sql_script.sql', 'r') as sqlite_file:
         sql_script = sqlite_file.read()
     cursor.executescript(sql_script)
     print("Script loaded successfully")

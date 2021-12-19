@@ -1,8 +1,7 @@
-from dbwork import create_connection, close_connection, add_user, remove_user, set_demo, minus_launch, get_user, \
+from old_code.dbwork import create_connection, close_connection, add_user, remove_user, set_demo, minus_launch, get_user, \
 	init_table
-import pytest
 
-path = ".\\sm_app.sqlite"
+path = "../sm_app.sqlite"
 
 def test_unit_minus_launch():
 	connection = create_connection(path)

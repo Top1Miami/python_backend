@@ -20,7 +20,7 @@ class Query(ObjectType):
 	fit_model = Field(FitQuery)
 
 	def resolve_fit_model(self, info):
-		return FitQueryObject(file_name="1.csv", model_name="LinReg", parameters=[FitParametersValueObject(key="n_jobs", value="4"), FitParametersValueObject(key="copy_X", value="true")], score=0.5)
+		return FitQueryObject(file_name="../1.csv", model_name="LinReg", parameters=[FitParametersValueObject(key="n_jobs", value="4"), FitParametersValueObject(key="copy_X", value="true")], score=0.5)
 
 app = FastAPI()
 app.add_route("/", GraphQLApp(schema=Schema(query=Query)))
